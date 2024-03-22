@@ -1,39 +1,32 @@
-
-const Parts = ({course})=>{
+const Parts = ({ course }) => {
   const sum = course.parts.reduce(
-  (accumulator, currentValue) => accumulator + currentValue.exercises,
-  0,);
+    (accumulator, currentValue) => accumulator + currentValue.exercises,
+    0
+  );
 
   return (
     <>
-    {course.parts.map((part)=>(
-        <>
-      <p key={part.id}>{part.name}</p>
-       </>
-    ))}
-    <h2>Total of {sum} exercises</h2>
+      {course.parts.map((part) => (
+        <p key={part.id}>{part.name}</p>
+      ))}
 
-</>
-  )
-}
+      <h2>Total of {sum} exercises</h2>
+    </>
+  );
+};
 
 const Course = ({ courses }) => {
-  
-
   return (
-  <div>
-
-   {courses.map((course)=>(
-        <>
-        <h1 key={course.id}>{course.name}</h1>
-        <Parts course={course} />
-        </>
-
-   ))}
-     
-  </div>
-  )
-}
+    <>
+      {courses.map((course) => (
+        <div key={course.id}>
+          <h1>{course.name}</h1>
+          <Parts course={course} />
+        </div>
+      ))}
+    </>
+  );
+};
 
 const App = () => {
   const courses = [
