@@ -22,7 +22,7 @@ const Form = ({
 
     const newContact = {
       name: newName,
-      number: newNumber,
+      phone: newNumber,
     };
     console.log(newContact.name);
 
